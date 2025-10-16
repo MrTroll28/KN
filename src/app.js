@@ -10,6 +10,10 @@ import { errorHandler } from "./middlewares/error.js";
 const app = express();
 app.use(helmet());
 app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://kn-ot48.onrender.com", // FE Render domain
+];
 app.use(
   cors({
     origin: (origin, callback) => {
